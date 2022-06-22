@@ -1,16 +1,12 @@
 import axios from "axios";
-import { ApiLocationsResponse, ApiLocation } from "../@types/types";
 
-// const DEV_CONFIDENCE_API = "https://dev-api.confidence.org/v2/confidence";
+import { ApiLocationsResponse } from "../@types/types";
 
-const getLocations = async () =>
+const getLocations = async (start: number, limit: number) =>
   (
     await axios.post<ApiLocationsResponse>(
       `/api/locations`,
-      JSON.stringify({
-        start: 0,
-        limit: 10,
-      }),
+      JSON.stringify({ start, limit }),
       {
         headers: {
           Username: "amitphatak$r5labs.com",

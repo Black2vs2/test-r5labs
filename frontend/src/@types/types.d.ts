@@ -7,10 +7,7 @@ export interface ApiLocation {
   numberofMyTasks: number;
   numberofDevices: number;
   address: {
-    addressLine1: string;
-    city: string;
-    state: string;
-    zip: string;
+    [key: string]: string;
   };
   locationUserRole: string;
   active: boolean;
