@@ -2,7 +2,10 @@ import axios from "axios";
 
 import { ApiLocationsResponse } from "../@types/types";
 
-const getLocations = async (start: number, limit: number) =>
+const getLocations = async (
+  start: number,
+  limit: number
+): Promise<ApiLocationsResponse> =>
   (
     await axios.post<ApiLocationsResponse>(
       `/api/locations`,

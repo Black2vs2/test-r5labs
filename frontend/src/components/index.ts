@@ -1,3 +1,4 @@
 import LocationComponent from "./LocationComponent";
+import LabelAndText from "./LabelAndText";
 
-export { LocationComponent };
+export { LocationComponent, LabelAndText };

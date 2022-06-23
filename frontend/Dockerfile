@@ -6,5 +6,4 @@ COPY package-lock.json ./
 RUN npm i
 COPY ./ ./
 
-
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "dockerStart"]
