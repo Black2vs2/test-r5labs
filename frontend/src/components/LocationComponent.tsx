@@ -38,14 +38,15 @@ const LocationComponent = ({
       maxWidth="700px"
       justifyContent="center"
       display="grid"
-      textAlign="center"
+      sx={{ marginX: 2 }}
+      id="locationsContainer"
     >
       {locations.map(
         ({ locationId, locationDetails, address, locationType }) => (
-          <Grid item xs={12} key={locationId}>
+          <Grid item xs={12} key={locationId} className="locationItem">
             <Card variant="outlined">
               <Grid container sx={{ m: 3 }} rowSpacing={3}>
-                <Grid item container xs={11} rowSpacing={2}>
+                <Grid item container xs={12} rowSpacing={2}>
                   <Grid item xs={6}>
                     <LabelAndText
                       label={"Location Details"}
@@ -59,7 +60,7 @@ const LocationComponent = ({
                 <Grid item xs={11}>
                   <Divider orientation="horizontal" variant="fullWidth" />
                 </Grid>
-                <Grid item container xs={11} rowSpacing={3}>
+                <Grid item container xs={12} rowSpacing={3}>
                   {Object.keys(address).map((addressObjectKey) => {
                     const currentElement = address[addressObjectKey];
                     if (!currentElement) return;
@@ -79,7 +80,7 @@ const LocationComponent = ({
         )
       )}
       <Grid item container justifyContent="center" sx={{ m: 1 }}>
-        {isFetchingData && <CircularProgress />}
+        {isFetchingData && <CircularProgress id="loadingCircularProgress" />}
       </Grid>
     </Grid>
   );

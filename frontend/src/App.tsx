@@ -9,7 +9,7 @@ const App = () => {
     // marginBottom to make it scrollable (could make cards longer)
     <Grid container rowSpacing={5} sx={{ marginY: 0, marginBottom: "100px" }}>
       <Grid item container xs={12} justifyContent="center">
-        <Typography variant="h2" sx={{ fontWeight: 400 }}>
+        <Typography variant="h2" sx={{ fontWeight: 400 }} id="pageTitle">
           Locations List
         </Typography>
       </Grid>
