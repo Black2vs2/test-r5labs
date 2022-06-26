@@ -6,10 +6,12 @@ const LabelAndText = ({ label, text }: { label: string; text: string }) => {
   return (
     <Grid item container>
       <Grid item xs={12}>
-        <Typography variant="subtitle2">{label}</Typography>
+        <Typography variant="h5" sx={{ fontWeight: 500 }}>
+          {label}
+        </Typography>
       </Grid>
       <Grid item xs={12}>
-        <Typography variant="body2">{text}</Typography>
+        <Typography variant="body1">{text}</Typography>
       </Grid>
     </Grid>
   );

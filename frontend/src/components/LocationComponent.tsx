@@ -32,32 +32,44 @@ const LocationComponent = ({
   }, []);
 
   return (
-    <Grid container rowSpacing={2} justifyContent="center">
+    <Grid
+      container
+      rowSpacing={5}
+      maxWidth="700px"
+      justifyContent="center"
+      display="grid"
+      textAlign="center"
+    >
       {locations.map(
         ({ locationId, locationDetails, address, locationType }) => (
-          <Grid item xs={7} key={locationId}>
+          <Grid item xs={12} key={locationId}>
             <Card variant="outlined">
-              <Grid container margin="12px">
-                <Grid item container xs={5}>
-                  <LabelAndText
-                    label={"Location Details"}
-                    text={locationDetails}
-                  />
-                  <LabelAndText label={"Location Type"} text={locationType} />
+              <Grid container sx={{ m: 3 }} rowSpacing={3}>
+                <Grid item container xs={11} rowSpacing={2}>
+                  <Grid item xs={6}>
+                    <LabelAndText
+                      label={"Location Details"}
+                      text={locationDetails}
+                    />
+                  </Grid>
+                  <Grid item xs={6}>
+                    <LabelAndText label={"Location Type"} text={locationType} />
+                  </Grid>
                 </Grid>
-                <Grid item xs={2} justifyContent="center" display="grid">
-                  <Divider orientation="vertical" variant="middle" />
+                <Grid item xs={11}>
+                  <Divider orientation="horizontal" variant="fullWidth" />
                 </Grid>
-                <Grid item container xs={5} rowSpacing={1}>
+                <Grid item container xs={11} rowSpacing={3}>
                   {Object.keys(address).map((addressObjectKey) => {
                     const currentElement = address[addressObjectKey];
                     if (!currentElement) return;
                     return (
-                      <LabelAndText
-                        label={addressObjectKey}
-                        text={currentElement}
-                        key={addressObjectKey}
-                      />
+                      <Grid item xs={6} key={addressObjectKey}>
+                        <LabelAndText
+                          label={addressObjectKey}
+                          text={currentElement}
+                        />
+                      </Grid>
                     );
                   })}
                 </Grid>
@@ -66,7 +78,7 @@ const LocationComponent = ({
           </Grid>
         )
       )}
-      <Grid item xs={12}>
+      <Grid item container justifyContent="center" sx={{ m: 1 }}>
         {isFetchingData && <CircularProgress />}
       </Grid>
     </Grid>
